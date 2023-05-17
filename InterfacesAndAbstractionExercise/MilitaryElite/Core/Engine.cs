@@ -7,8 +7,10 @@
 
     public class Engine : IEngine
     {
+    
         private readonly IReader reader;
         private readonly IWriter writer;
+        
         public Engine(IReader reader, IWriter writer) 
         {
             this.reader = reader;
@@ -89,6 +91,7 @@
                 writer.WriteLine(soldier.ToString());
             }
         }
+        
         private ICollection<IMission> GetMissions(string[] missions)
         {
             ICollection<IMission> currentMissions = new List<IMission>();
@@ -107,8 +110,10 @@
 
             return currentMissions;
         }
+        
         private bool ValidCorps(string corps)
             => corps == "Airforces" || corps == "Marines";
+            
         private ICollection<IRepair> GetRepairs(string[] repairs)
         {
             ICollection<IRepair> currentRepairs = new List<IRepair>();
@@ -126,6 +131,7 @@
             }
             return currentRepairs;
         }
+        
         private ICollection<IPrivateSoldier> GetPrivateSoldiers(int[] privateId, ICollection<ISoldier> soldiers)
         {
             ICollection<IPrivateSoldier> privateSoldiers = new List<IPrivateSoldier>();
